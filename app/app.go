@@ -5,7 +5,7 @@ import (
 	"auth/controllers"
 	"auth/internal/database"
 	"auth/repositories"
-	"auth/routes"
+	"auth/routers"
 	"auth/services"
 
 	"github.com/gin-gonic/gin"
@@ -21,7 +21,7 @@ func InitializeApp() *gin.Engine {
 	authService := services.NewAuthService(authRepo)
 	authController := controllers.NewAuthController(authService)
 
-	router := routes.SetupRouter(authController)
+	router := routers.SetupRouter(authController)
 
 	return router
 }
